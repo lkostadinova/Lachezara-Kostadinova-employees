@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace EmployeeIdentifier.Api.Controllers
 {
     [ApiController]
-    public class EmployeesController() : ControllerBase
+    [Route("[controller]")]
+    public class EmployeesController : ControllerBase
     {
         [HttpGet]
         [Route("/", Name = "HealthCheck")]
@@ -19,15 +20,15 @@ namespace EmployeeIdentifier.Api.Controllers
         /// Analyzes employee project data file and returns the pair of employees who worked together. 
         /// </summary>
         /// <param name="file">CSV file with columns: EmpID, ProjectID, DateFrom, DateTo</param>
-        /// <param name="_handler"></param>
+        /// <param name="handler">The request handler service</param>
         /// <returns>The employee pair with the longest collaboration</returns>
-        [HttpPost()]
+        [HttpPost]
         [Route(Routes.GET_EMPLOYEES, Name = nameof(Routes.GET_EMPLOYEES))]
         [ProducesResponseType(typeof(EmployeeCollaborationResult), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponseModel), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetEmployees(IFormFile file, IGetEmployeeCollaborationRequestHandler _handler)
+        public async Task<IActionResult> GetEmployees(IFormFile file, [FromServices] IGetEmployeeCollaborationRequestHandler handler)
         {
-            var response = await _handler.HandleAsync(file);
+            var response = await handler.HandleAsync(file);
 
             if (!response.Success)
             {
