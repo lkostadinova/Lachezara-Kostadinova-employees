@@ -14,11 +14,7 @@ namespace EmployeeIdentifier.Api.Tests
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.ConfigureServices(services =>
-            {
-                // Configure any test-specific services here if needed
-                // For example, replace dependencies with test doubles
-            });
+            builder.ConfigureServices(services =>{});
         }
     }
 }
