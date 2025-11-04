@@ -20,7 +20,7 @@ namespace EmployeeIdentifier.Api.Controllers
         /// Analyzes employee project data file and returns the pair of employees who worked together. 
         /// </summary>
         /// <param name="file">CSV file with columns: EmpID, ProjectID, DateFrom, DateTo</param>
-        /// <param name="_handler">The request handler service</param>
+        /// <param name="handler">The request handler service</param>
         /// <returns>The employee pair with the longest collaboration</returns>
         [HttpPost]
         [Route(Routes.GET_EMPLOYEES, Name = nameof(Routes.GET_EMPLOYEES))]
