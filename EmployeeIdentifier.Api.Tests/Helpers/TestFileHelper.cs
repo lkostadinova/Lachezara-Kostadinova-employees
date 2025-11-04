@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using System.Text;
 
 namespace EmployeeIdentifier.Api.Tests.Helpers

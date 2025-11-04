@@ -1,14 +1,11 @@
 ﻿using EmployeeIdentifier.Api.Configuration;
 using EmployeeIdentifier.Api.Middleware;
 using EmployeeIdentifier.Api.Models;
-using EmployeeIdentifier.Api.Models.Enums;
-using EmployeeIdentifier.Api.Shared.ExceptionHandling;
 using EmployeeIdentifier.Api.Shared.Logging;
 using EmployeeIdentifier.Api.Swagger;
 using EmployeeIdentifier.Logging.Metadata;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using Newtonsoft.Json.Serialization;
 using Scalar.AspNetCore;
 using Swashbuckle.AspNetCore.Filters;
 
