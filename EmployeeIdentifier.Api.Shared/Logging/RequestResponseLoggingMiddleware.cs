@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EmployeeIdentifier.Logging.Metadata;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
-using System.Reflection;
 using System.Text;
-using EmployeeIdentifier.Logging.Metadata;
 
 namespace EmployeeIdentifier.Api.Shared.Logging
 {

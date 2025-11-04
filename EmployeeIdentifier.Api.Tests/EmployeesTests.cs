@@ -1,16 +1,9 @@
-using EmployeeIdentifier.Api.Models;
 using EmployeeIdentifier.Api.Models.Enums;
 using EmployeeIdentifier.Api.RequestHandlers;
-using EmployeeIdentifier.Api.RequestHandlers.Abstract;
 using EmployeeIdentifier.Api.Tests.Helpers;
 using EmployeeIdentifier.Services.Dtos;
 using EmployeeIdentifier.Services.Services.Abstract;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Moq;
-using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 using Xunit;

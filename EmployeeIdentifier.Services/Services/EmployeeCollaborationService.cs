@@ -4,9 +4,6 @@ using Microsoft.Extensions.Logging;
 
 namespace EmployeeIdentifier.Services.Services
 {
-    /// <summary>
-    /// Service for analyzing employee collaborations from CSV data
-    /// </summary>
     public class EmployeeCollaborationService : IEmployeeCollaborationService
     {
         private readonly ILogger<EmployeeCollaborationService> _logger;
@@ -16,9 +13,7 @@ namespace EmployeeIdentifier.Services.Services
             _logger = logger;
         }
 
-        /// <summary>
         /// Analyzes CSV data to find the pair of employees who worked together the longest
-        /// </summary>
         public async Task<EmployeeCollaborationDto?> AnalyzeCollaborationsAsync(Stream csvStream)
         {
             try
@@ -40,9 +35,7 @@ namespace EmployeeIdentifier.Services.Services
             }
         }
 
-        /// <summary>
         /// Parses CSV stream into employee project records
-        /// </summary>
         private async Task<List<EmployeeProjectRecordDto>> ParseCsvAsync(Stream csvStream)
         {
             var records = new List<EmployeeProjectRecordDto>();
@@ -89,8 +82,7 @@ namespace EmployeeIdentifier.Services.Services
                         }
 
                         DateTime? dateTo = null;
-                        if (!string.IsNullOrEmpty(parts[3]) &&
-                    !parts[3].Equals("NULL", StringComparison.OrdinalIgnoreCase))
+                        if (!string.IsNullOrEmpty(parts[3]) && !parts[3].Equals("NULL", StringComparison.OrdinalIgnoreCase))
                         {
                             if (DateTime.TryParse(parts[3], out DateTime parsedDateTo))
                             {
@@ -121,9 +113,7 @@ namespace EmployeeIdentifier.Services.Services
             return records;
         }
 
-        /// <summary>
         /// Finds the pair of employees with the longest collaboration across all projects
-        /// </summary>
         private EmployeeCollaborationDto? FindLongestCollaboration(List<EmployeeProjectRecordDto> records)
         {
             // Group records by project
@@ -205,12 +195,8 @@ namespace EmployeeIdentifier.Services.Services
             };
         }
 
-        /// <summary>
         /// Calculates the overlap period between two employee records
-        /// </summary>
-        private (DateTime start, DateTime end, int days)? CalculateOverlap(
-                                                          EmployeeProjectRecordDto record1,
-                                                          EmployeeProjectRecordDto record2)
+        private (DateTime start, DateTime end, int days)? CalculateOverlap(EmployeeProjectRecordDto record1, EmployeeProjectRecordDto record2)
         {
             // Use today's date if DateTo is null
             var end1 = record1.DateTo ?? DateTime.Today;
