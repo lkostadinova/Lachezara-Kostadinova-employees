@@ -31,4 +31,8 @@
     <ProjectReference Include="..\EmployeeIdentifier.Services\EmployeeIdentifier.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
 </Project>
