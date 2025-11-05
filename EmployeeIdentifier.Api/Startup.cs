@@ -1,5 +1,4 @@
 ﻿using EmployeeIdentifier.Api.Configuration;
-using EmployeeIdentifier.Api.Middleware;
 using EmployeeIdentifier.Api.Models;
 using EmployeeIdentifier.Api.Shared.Logging;
 using EmployeeIdentifier.Api.Swagger;
@@ -78,7 +77,6 @@ namespace EmployeeIdentifier.Api
             //// Custom middlewares >>
             var loggingSettings = new ApiLoggingSettings(logRequestResponses: true, modelsAssembly: typeof(ErrorModel).Assembly);
             app.UseMiddleware<RequestResponseLoggingMiddleware>(loggingSettings);
-            app.UseMiddleware<ErrorHandlerMiddleware>();
             //// << Custom middlewares
 
             app.UseEndpoints(endpoints =>
